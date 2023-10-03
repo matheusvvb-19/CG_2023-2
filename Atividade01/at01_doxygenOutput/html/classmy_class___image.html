@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CG_2023-2: Referência da Classe myClass_Image</title>
+<title>CG 2023-2 Atividade 01: Referência da Classe myClass_Image</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CG_2023-2<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">CG 2023-2 Atividade 01<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">Computação Gráfica (CG) - UFSCar Sorocaba</div>
   </td>
@@ -72,6 +72,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="#pri-methods">Membros privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="classmy_class___image-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle"><div class="title">Referência da Classe myClass_Image</div></div>
 </div><!--header-->
@@ -80,7 +82,7 @@ $(function() {
 <p>Arquivo de cabeçalho da classe <a class="el" href="classmy_class___image.html" title="Arquivo de cabeçalho da classe myClass_Image.">myClass_Image</a>.  
  <a href="classmy_class___image.html#details">Mais...</a></p>
 
-<p><code>#include &lt;<a class="el" href="at01__my_class___image_8h_source.html">at01_myClass_Image.h</a>&gt;</code></p>
+<p><code>#include &quot;<a class="el" href="at01__my_class___image_8h_source.html">at01_myClass_Image.h</a>&quot;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
@@ -93,10 +95,57 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:ad47d447434c4cfff91bd8033408b1433" id="r_ad47d447434c4cfff91bd8033408b1433"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_class___image.html#ad47d447434c4cfff91bd8033408b1433">RenderImageLine</a> (std::string filename)</td></tr>
 <tr class="memdesc:ad47d447434c4cfff91bd8033408b1433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gera um arquivo .ppm para o primeiro tipo de imagem simples: uma linha sobre um fundo plano.  <br /></td></tr>
 <tr class="separator:ad47d447434c4cfff91bd8033408b1433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Membros privados</h2></td></tr>
+<tr class="memitem:a322989e34ee0041907712cbd7664b051" id="r_a322989e34ee0041907712cbd7664b051"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_class___image.html#a322989e34ee0041907712cbd7664b051">Ppm2Png</a> (std::string filename)</td></tr>
+<tr class="memdesc:a322989e34ee0041907712cbd7664b051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gera um arquivo .png a partir de um arquivo .ppm informado.  <br /></td></tr>
+<tr class="separator:a322989e34ee0041907712cbd7664b051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a67316fe24b7fb744e5b350935f46bcde" id="r_a67316fe24b7fb744e5b350935f46bcde"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_class___image.html#a67316fe24b7fb744e5b350935f46bcde">width</a> = 256</td></tr>
+<tr class="separator:a67316fe24b7fb744e5b350935f46bcde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa329755423a9648b0746564fd2f67766" id="r_aa329755423a9648b0746564fd2f67766"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmy_class___image.html#aa329755423a9648b0746564fd2f67766">height</a> = 256</td></tr>
+<tr class="separator:aa329755423a9648b0746564fd2f67766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Arquivo de cabeçalho da classe <a class="el" href="classmy_class___image.html" title="Arquivo de cabeçalho da classe myClass_Image.">myClass_Image</a>. </p>
 </div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a322989e34ee0041907712cbd7664b051" name="a322989e34ee0041907712cbd7664b051"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322989e34ee0041907712cbd7664b051">&#9670;&#160;</a></span>Ppm2Png()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myClass_Image::Ppm2Png </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gera um arquivo .png a partir de um arquivo .ppm informado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nome desejado para o arquivo de saída. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8f2582e22fc7036509b07a1bba5da809" name="a8f2582e22fc7036509b07a1bba5da809"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f2582e22fc7036509b07a1bba5da809">&#9670;&#160;</a></span>RenderImageFade()</h2>
 
@@ -172,6 +221,51 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a id="aa329755423a9648b0746564fd2f67766" name="aa329755423a9648b0746564fd2f67766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa329755423a9648b0746564fd2f67766">&#9670;&#160;</a></span>height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int myClass_Image::height = 256</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67316fe24b7fb744e5b350935f46bcde" name="a67316fe24b7fb744e5b350935f46bcde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67316fe24b7fb744e5b350935f46bcde">&#9670;&#160;</a></span>width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int myClass_Image::width = 256</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
