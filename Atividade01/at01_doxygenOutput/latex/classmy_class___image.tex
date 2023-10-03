@@ -1,0 +1,119 @@
+\doxysection{Referência da Classe my\+Class\+\_\+\+Image}
+\hypertarget{classmy_class___image}{}\label{classmy_class___image}\index{myClass\_Image@{myClass\_Image}}
+
+
+Arquivo de cabeçalho da classe \doxylink{classmy_class___image}{my\+Class\+\_\+\+Image}.  
+
+
+
+
+{\ttfamily \#include "{}at01\+\_\+my\+Class\+\_\+\+Image.\+h"{}}
+
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmy_class___image_a8f2582e22fc7036509b07a1bba5da809}{Render\+Image\+Fade}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: um degradê. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy_class___image_adea3655e0b0e91fd442964738a297cd6}{Render\+Image\+Rectangule}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: um retângulo sobre um fundo plano. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy_class___image_ad47d447434c4cfff91bd8033408b1433}{Render\+Image\+Line}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: uma linha sobre um fundo plano. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmy_class___image_a322989e34ee0041907712cbd7664b051}{Ppm2\+Png}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Gera um arquivo .png a partir de um arquivo .ppm informado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmy_class___image_a67316fe24b7fb744e5b350935f46bcde}{width}} = 256
+\item 
+int \mbox{\hyperlink{classmy_class___image_aa329755423a9648b0746564fd2f67766}{height}} = 256
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo de cabeçalho da classe \doxylink{classmy_class___image}{my\+Class\+\_\+\+Image}. 
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classmy_class___image_a322989e34ee0041907712cbd7664b051}\label{classmy_class___image_a322989e34ee0041907712cbd7664b051} 
+\index{myClass\_Image@{myClass\_Image}!Ppm2Png@{Ppm2Png}}
+\index{Ppm2Png@{Ppm2Png}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{Ppm2Png()}{Ppm2Png()}}
+{\footnotesize\ttfamily void my\+Class\+\_\+\+Image\+::\+Ppm2\+Png (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gera um arquivo .png a partir de um arquivo .ppm informado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em filename} & Nome desejado para o arquivo de saída. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmy_class___image_a8f2582e22fc7036509b07a1bba5da809}\label{classmy_class___image_a8f2582e22fc7036509b07a1bba5da809} 
+\index{myClass\_Image@{myClass\_Image}!RenderImageFade@{RenderImageFade}}
+\index{RenderImageFade@{RenderImageFade}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{RenderImageFade()}{RenderImageFade()}}
+{\footnotesize\ttfamily void my\+Class\+\_\+\+Image\+::\+Render\+Image\+Fade (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: um degradê. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em filename} & Nome desejado para o arquivo de saída. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmy_class___image_ad47d447434c4cfff91bd8033408b1433}\label{classmy_class___image_ad47d447434c4cfff91bd8033408b1433} 
+\index{myClass\_Image@{myClass\_Image}!RenderImageLine@{RenderImageLine}}
+\index{RenderImageLine@{RenderImageLine}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{RenderImageLine()}{RenderImageLine()}}
+{\footnotesize\ttfamily void my\+Class\+\_\+\+Image\+::\+Render\+Image\+Line (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: uma linha sobre um fundo plano. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em filename} & Nome desejado para o arquivo de saída. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmy_class___image_adea3655e0b0e91fd442964738a297cd6}\label{classmy_class___image_adea3655e0b0e91fd442964738a297cd6} 
+\index{myClass\_Image@{myClass\_Image}!RenderImageRectangule@{RenderImageRectangule}}
+\index{RenderImageRectangule@{RenderImageRectangule}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{RenderImageRectangule()}{RenderImageRectangule()}}
+{\footnotesize\ttfamily void my\+Class\+\_\+\+Image\+::\+Render\+Image\+Rectangule (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Gera um arquivo .ppm para o primeiro tipo de imagem simples\+: um retângulo sobre um fundo plano. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em filename} & Nome desejado para o arquivo de saída. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Atributos}
+\Hypertarget{classmy_class___image_aa329755423a9648b0746564fd2f67766}\label{classmy_class___image_aa329755423a9648b0746564fd2f67766} 
+\index{myClass\_Image@{myClass\_Image}!height@{height}}
+\index{height@{height}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int my\+Class\+\_\+\+Image\+::height = 256\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classmy_class___image_a67316fe24b7fb744e5b350935f46bcde}\label{classmy_class___image_a67316fe24b7fb744e5b350935f46bcde} 
+\index{myClass\_Image@{myClass\_Image}!width@{width}}
+\index{width@{width}!myClass\_Image@{myClass\_Image}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int my\+Class\+\_\+\+Image\+::width = 256\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/\+CG\+\_\+2023-\/2/\+Atividade01/\mbox{\hyperlink{at01__my_class___image_8h}{at01\+\_\+my\+Class\+\_\+\+Image.\+h}}\item 
+C\+:/\+Users/\+User/\+Desktop/\+CG\+\_\+2023-\/2/\+Atividade01/\mbox{\hyperlink{at01__my_class___image_8cc}{at01\+\_\+my\+Class\+\_\+\+Image.\+cc}}\end{DoxyCompactItemize}
