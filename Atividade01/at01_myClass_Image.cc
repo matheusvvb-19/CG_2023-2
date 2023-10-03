@@ -11,6 +11,7 @@
 
 #include "at01_myClass_Image.h"
 
+#include <Magick++.h>
 #include <png.h>
 
 #include <cmath>
@@ -48,6 +49,8 @@ void myClass_Image::RenderImageFade(std::string filename) {
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
               << std::endl;
+
+    myClass_Image::Ppm2Png(filename);
 };
 
 /**
@@ -100,6 +103,8 @@ void myClass_Image::RenderImageRectangule(std::string filename) {
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
               << std::endl;
+
+    myClass_Image::Ppm2Png(filename);
 };
 
 /**
@@ -147,4 +152,31 @@ void myClass_Image::RenderImageLine(std::string filename) {
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
               << std::endl;
+
+    myClass_Image::Ppm2Png(filename);
+};
+
+/**
+ * @brief Gera um arquivo .png a partir de um arquivo .ppm informado.
+ *
+ * @param filename Nome desejado para o arquivo de saída.
+ */
+void myClass_Image::Ppm2Png(std::string filename) {
+    Magick::InitializeMagick(nullptr);
+
+    try {
+        // Carregue a imagem .ppm
+        Magick::Image imagem(filename);
+
+        // Salve a imagem em .png
+        imagem.write(filename.substr(0, filename.find_last_of('.')) + ".png");
+
+        std::cout << "Imagem " << filename.substr(0, filename.find_last_of('.')) + ".png"
+                  << " gerada com sucesso\n"
+                  << std::endl;
+
+    } catch (const std::exception& ex) {
+        std::cerr << "Erro: " << ex.what() << "\n"
+                  << std::endl;
+    }
 };
