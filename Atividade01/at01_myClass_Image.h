@@ -20,4 +20,7 @@ class myClass_Image {
 
    public:
     void RenderImageLine(std::string filename);
+
+   private:
+    void Ppm2Png(std::string filename);
 };
