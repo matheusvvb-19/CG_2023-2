@@ -1,3 +1,10 @@
+/**
+ * @brief Arquivo de cabeçalho da classe myClass_Image.
+ *
+ */
+
+#include <string>
+
 class myClass_Image {
    private:
     int width = 256;

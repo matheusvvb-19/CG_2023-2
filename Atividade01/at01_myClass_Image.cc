@@ -1,3 +1,14 @@
+/**
+ * @file at01_myClass_Image.cc
+ * @author Matheus Vargas Volpon Berto
+ * @brief Esta classe contém métodos que geram arquivo de extensão .ppm para três imagens simples distintas, conforme expecificação da atividade.
+ * @version 1.0.0
+ * @date 2023-10-02
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
+
 #include "at01_myClass_Image.h"
 
 #include <png.h>
@@ -7,16 +18,21 @@
 #include <iostream>
 #include <string>
 
-void myClass_Image::RenderImageFade(const std::string filename) {
-    // Crie um arquivo de saída PPM chamado "degrade.ppm"
+/**
+ * @brief Gera um arquivo .ppm para o primeiro tipo de imagem simples: um degradê.
+ *
+ * @param filename Nome desejado para o arquivo de saída.
+ */
+void myClass_Image::RenderImageFade(std::string filename) {
+    // Criando um arquivo de saída .ppm
     std::ofstream arquivo(filename);
 
-    // Escreva o cabeçalho PPM
+    // Escrevendo o cabeçalho .ppm
     arquivo << "P3" << std::endl;
     arquivo << width << " " << height << std::endl;
     arquivo << "255" << std::endl;
 
-    // Gere o degradê de roxo para azul e escreva os pixels no arquivo
+    // Gerando o degradê de roxo para azul e escreva os pixels no arquivo
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             int vermelho = 128;           // Componente Vermelho fixo
@@ -28,18 +44,22 @@ void myClass_Image::RenderImageFade(const std::string filename) {
         arquivo << std::endl;
     }
 
-    // Feche o arquivo
     arquivo.close();
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
               << std::endl;
 };
 
-void myClass_Image::RenderImageRectangule(const std::string filename) {
-    // Crie um arquivo de saída PPM chamado "imagem.ppm"
+/**
+ * @brief Gera um arquivo .ppm para o primeiro tipo de imagem simples: um retângulo sobre um fundo plano.
+ *
+ * @param filename Nome desejado para o arquivo de saída.
+ */
+void myClass_Image::RenderImageRectangule(std::string filename) {
+    // Criando um arquivo de saída .ppm
     std::ofstream arquivo(filename);
 
-    // Escreva o cabeçalho PPM
+    // Escrevendo o cabeçalho .ppm
     arquivo << "P3" << std::endl;
     arquivo << width << " " << height << std::endl;
     arquivo << "255" << std::endl;
@@ -56,7 +76,7 @@ void myClass_Image::RenderImageRectangule(const std::string filename) {
 
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            // Verifique se o ponto está na metade esquerda ou direita
+            // Verificando se o ponto está na metade esquerda ou direita
             if (x < width / 2) {
                 arquivo << verde << " " << vermelho << " 0 ";
             } else {
@@ -76,18 +96,22 @@ void myClass_Image::RenderImageRectangule(const std::string filename) {
         arquivo << std::endl;
     }
 
-    // Feche o arquivo
     arquivo.close();
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
               << std::endl;
 };
 
-void myClass_Image::RenderImageLine(const std::string filename) {
-    // Crie um arquivo de saída PPM chamado "imagem.ppm"
+/**
+ * @brief Gera um arquivo .ppm para o primeiro tipo de imagem simples: uma linha sobre um fundo plano.
+ *
+ * @param filename Nome desejado para o arquivo de saída.
+ */
+void myClass_Image::RenderImageLine(std::string filename) {
+    // Criando um arquivo de saída .ppm
     std::ofstream arquivo(filename);
 
-    // Escreva o cabeçalho PPM
+    // Escrevendo o cabeçalho .ppm
     arquivo << "P3" << std::endl;
     arquivo << width << " " << height << std::endl;
     arquivo << "255" << std::endl;
@@ -105,7 +129,7 @@ void myClass_Image::RenderImageLine(const std::string filename) {
     // Posição vertical da linha
     int linha_y = height / 2;
 
-    // Gere a imagem com fundo vermelho e a linha branca
+    // Gerando a imagem com fundo vermelho e a linha branca
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             if (y == linha_y) {
@@ -119,7 +143,6 @@ void myClass_Image::RenderImageLine(const std::string filename) {
         arquivo << std::endl;
     }
 
-    // Feche o arquivo
     arquivo.close();
 
     std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
