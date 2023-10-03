@@ -4,6 +4,11 @@ Nesta atividade, foi criada uma classe simples, denominada `myClass_Image`, resp
 
 Posteriormente à geração dos arquivos mencionados, a biblioteca [ImageMagick](https://imagemagick.org/index.php) foi empregada de forma a converter tais arquivos para o formato `.png`. Uma documentação automática foi gerada a partir da ferramenta [Doxygen](https://www.doxygen.nl/) e está localizada na pasta `at01_doxygenOutput`.
 
+Ao final desta atividade, as três seguintes imagens são geradas:
+<div align="center">
+  <img src="/Atividade01/expectedOutput.png" width="60%">
+</div>
+
 <h2>Execução</h2>
 1. Gerar o arquivo executável a partir da compilação dos códigos em arquivos de extensão `.cc` e `.h`:
 
