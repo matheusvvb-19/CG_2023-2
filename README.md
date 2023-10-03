@@ -1,6 +1,8 @@
 # Computação Gráfica (CG) - 2023/2
 Repositório para armazenamento das atividades desenvolvidas durante a disciplina de **Computação Gráfica** (CG), no período letivo 2023/2 do curso de **Bacharelado em Ciência da Computação** na **Universidade Federal de São Carlos (UFSCar) - campus Sorocaba**.
 
+Dentro deste repositório, foi criada uma pasta correspondente a cada atividade desenvolvida.
+
 **Aluno**: Matheus Vargas Volpon Berto<br>
 **RA**: 771051
 
