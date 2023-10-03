@@ -10,26 +10,21 @@ Ao final desta atividade, as três seguintes imagens são geradas:
 </div>
 
 <h2>Execução</h2>
-1. Gerar o arquivo executável a partir da compilação dos códigos em arquivos de extensão `.cc` e `.h`:
-
-```
-g++ at01_main.cc at01_myClass_Image.cc -o main
-```
-
-2. Executar o arquivo executável criado na etapa anterior:
-
-```
-./main
-```
-
-3. Instalar a biblioteca ImageMagick:
+1. Instalar a biblioteca ImageMagick:
 
 ```
 sudo apt install imagemagick
+sudo apt install graphicsmagick-libmagick-dev-compat
 ```
-*observação: você pode verificar a versão instalada a partir do comando `identify -version`.
 
-4. Converter cada um dos arquivos `.ppm` para `.png` com o seguinte comando, substituindo `<arquivoEntrada>` e `<arquivoSaida>` pelo nome do respectivo arquivo `.ppm` e o nome desejado para o arquivo de saída (após conversão):
+2\. Gerar o arquivo executável a partir da compilação dos códigos em arquivos de extensão `.cc` e `.h`:
+
 ```
-convert <arquivoEntrada>.ppm <arquivoSaida>.png
+g++ at01_main.cc at01_myClass_Image.cc -o main `Magick++-config --cppflags --cxxflags --ldflags --libs`
+```
+
+3\. Executar o arquivo executável criado na etapa anterior:
+
+```
+./main
 ```
