@@ -28,3 +28,5 @@ g++ at01_main.cc at01_myClass_Image.cc -o main `Magick++-config --cppflags --cxx
 ```
 ./main
 ```
+
+Os arquivos de extensão `.ppm` e `.png` serão criados na mesma pasta do código fonte. A pasta `at01_doxygenOutput` contém a documentação gerada automaticamente pela ferramenta [Doxygen](https://www.doxygen.nl/) em dois formtados: *html* e *latex*. Além disso, há um arquivo `.pdf` contendo tal documentação.
