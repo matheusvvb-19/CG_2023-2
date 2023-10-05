@@ -35,10 +35,11 @@ void myClass_Image::RenderImageFade(std::string filename) {
 
     // Gerando o degradê de roxo para azul e escreva os pixels no arquivo
     for (int y = 0; y < height; ++y) {
+        std::clog << "\rScanlines remaining: " << (height - y) << ' ' << std::flush;
         for (int x = 0; x < width; ++x) {
-            int vermelho = 128;           // Componente Vermelho fixo
-            int verde = 0;                // Componente Verde fixo
-            int azul = x * 255 / width;   // Varie o componente Azul de 0 a 255
+            int vermelho = 128;
+            int verde = 0;
+            int azul = x * 255 / width;
 
             arquivo << vermelho << " " << verde << " " << azul << " ";
         }
@@ -47,8 +48,7 @@ void myClass_Image::RenderImageFade(std::string filename) {
 
     arquivo.close();
 
-    std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
-              << std::endl;
+    std::clog << "\nArquivo " << filename << " gerado com sucesso.\n";
 
     myClass_Image::Ppm2Png(filename);
 };
@@ -78,6 +78,7 @@ void myClass_Image::RenderImageRectangule(std::string filename) {
     int lado_quadrado = std::min(width, height) / 2;
 
     for (int y = 0; y < height; ++y) {
+        std::clog << "\rScanlines remaining: " << (height - y) << ' ' << std::flush;
         for (int x = 0; x < width; ++x) {
             // Verificando se o ponto está na metade esquerda ou direita
             if (x < width / 2) {
@@ -101,8 +102,7 @@ void myClass_Image::RenderImageRectangule(std::string filename) {
 
     arquivo.close();
 
-    std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
-              << std::endl;
+    std::clog << "\nArquivo " << filename << " gerado com sucesso.\n";
 
     myClass_Image::Ppm2Png(filename);
 };
@@ -136,6 +136,7 @@ void myClass_Image::RenderImageLine(std::string filename) {
 
     // Gerando a imagem com fundo vermelho e a linha branca
     for (int y = 0; y < height; ++y) {
+        std::clog << "\rScanlines remaining: " << (height - y) << ' ' << std::flush;
         for (int x = 0; x < width; ++x) {
             if (y == linha_y) {
                 // Desenha a linha branca
@@ -150,8 +151,7 @@ void myClass_Image::RenderImageLine(std::string filename) {
 
     arquivo.close();
 
-    std::cout << "Arquivo " << filename << " gerado com sucesso.\n"
-              << std::endl;
+    std::clog << "\nArquivo " << filename << " gerado com sucesso.\n";
 
     myClass_Image::Ppm2Png(filename);
 };
@@ -164,19 +164,13 @@ void myClass_Image::RenderImageLine(std::string filename) {
 void myClass_Image::Ppm2Png(std::string filename) {
     Magick::InitializeMagick(nullptr);
 
-    try {
-        // Carregue a imagem .ppm
-        Magick::Image imagem(filename);
+    // Carregando a imagem .ppm
+    Magick::Image imagem(filename);
 
-        // Salve a imagem em .png
-        imagem.write(filename.substr(0, filename.find_last_of('.')) + ".png");
+    // Salvando a imagem em .png
+    imagem.write(filename.substr(0, filename.find_last_of('.')) + ".png");
 
-        std::cout << "Imagem " << filename.substr(0, filename.find_last_of('.')) + ".png"
-                  << " gerada com sucesso\n"
-                  << std::endl;
-
-    } catch (const std::exception& ex) {
-        std::cerr << "Erro: " << ex.what() << "\n"
-                  << std::endl;
-    }
+    std::cout << "Imagem " << filename.substr(0, filename.find_last_of('.')) + ".png"
+              << " gerada com sucesso\n"
+              << std::endl;
 };
