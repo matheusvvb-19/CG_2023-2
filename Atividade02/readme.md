@@ -3,7 +3,7 @@
 Nesta atividade, foram criadas as classes `vec2`, `vec4`, `mat2`, `mat3` e `mat4`, responsáveis por implementar operações básicas (soma, subtração, divisão e multiplicação) entre vetores e/ou matrizes de 2, 3 e 4 dimensões.
 
 <h2>Construção</h2>
-1. Primeiramente, as classes foram implementadas em seus respectivos arquivos `.hpp` e armazenados na pasta `src`;
+1. Primeiramente, as classes foram implementadas em seus respectivos arquivos de extensão `.hpp` e armazenados na pasta `src`;
 
 2\. O *framework* CMake foi instalado a partir do comando abaixo:
 
