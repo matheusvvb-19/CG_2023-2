@@ -94,58 +94,6 @@ class mat3 {
 };
 
 /**
- * @brief Calcula a matriz transposta da matriz inicial
- *
- * @param A Matriz inicial
- * @return mat3 Matriz transposta
- */
-inline mat3 const transpose(const mat3& A) {
-    mat3 trans;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            trans.m[i][j] = A.m[j][i];
-        }
-    }
-    return trans;
-}
-
-/**
- * @brief Calcula o determinante de uma matriz
- *
- * @param A Matriz inicial
- * @return double Determinante
- */
-inline double const determinant(const mat3& A) {
-    return A.m[0][0] * (A.m[1][1] * A.m[2][2] - A.m[2][1] * A.m[1][2]) - A.m[0][1] * (A.m[1][0] * A.m[2][2] - A.m[2][0] * A.m[1][2]) + A.m[0][2] * (A.m[1][0] * A.m[2][1] - A.m[2][0] * A.m[1][1]);
-}
-
-/**
- * @brief Retorna a inversa de uma determinada matriz inicial
- *
- * @param A Matriz inicial
- * @return mat3 Matriz inversa
- */
-inline mat3 const inverse(const mat3& A) {
-    double det = determinant(A);
-    if (det == 0.0) {
-        throw std::runtime_error("A matriz não tem inversa (determinante zero).");
-    }
-
-    double invDet = 1.0 / det;
-    mat3 inv;
-    inv.m[0][0] = (A.m[1][1] * A.m[2][2] - A.m[2][1] * A.m[1][2]) * invDet;
-    inv.m[0][1] = -(A.m[0][1] * A.m[2][2] - A.m[2][1] * A.m[0][2]) * invDet;
-    inv.m[0][2] = (A.m[0][1] * A.m[1][2] - A.m[1][1] * A.m[0][2]) * invDet;
-    inv.m[1][0] = -(A.m[1][0] * A.m[2][2] - A.m[2][0] * A.m[1][2]) * invDet;
-    inv.m[1][1] = (A.m[0][0] * A.m[2][2] - A.m[2][0] * A.m[0][2]) * invDet;
-    inv.m[1][2] = -(A.m[0][0] * A.m[1][2] - A.m[1][0] * A.m[0][2]) * invDet;
-    inv.m[2][0] = (A.m[1][0] * A.m[2][1] - A.m[2][0] * A.m[1][1]) * invDet;
-    inv.m[2][1] = -(A.m[0][0] * A.m[2][1] - A.m[2][0] * A.m[0][1]) * invDet;
-    inv.m[2][2] = (A.m[0][0] * A.m[1][1] - A.m[1][0] * A.m[0][1]) * invDet;
-    return inv;
-}
-
-/**
  * @brief Soma duas matrizes
  *
  * @param A Primeira matriz
