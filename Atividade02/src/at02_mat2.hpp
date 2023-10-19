@@ -80,47 +80,6 @@ class mat2 {
 };
 
 /**
- * @brief Calcula a matriz transposta da matriz inicial
- *
- * @param A Matriz inicial
- * @return mat2 Matriz transposta
- */
-inline mat2 const transpose(const mat2& A) {
-    mat2 trans;
-    trans.m[0][0] = A.m[0][0];
-    trans.m[1][0] = A.m[0][1];
-    trans.m[0][1] = A.m[1][0];
-    trans.m[1][1] = A.m[1][1];
-    return trans;
-}
-
-/**
- * @brief Calcula o determinante de uma matriz
- *
- * @param A Matriz inicial
- * @return double Determinante
- */
-inline double const determinant(const mat2& A) {
-    return (A.m[0][0] * A.m[1][1] - A.m[1][0] * A.m[0][1]);
-}
-
-/**
- * @brief Retorna a inversa de uma determinada matriz inicial
- *
- * @param A Matriz inicial
- * @return mat2 Matriz inversa
- */
-inline mat2 const inverse(const mat2& A) {
-    double invdet = 1.0 / (A.m[0][0] * A.m[1][1] - A.m[1][0] * A.m[0][1]);
-    mat2 inv;
-    inv.m[0][0] = A.m[1][1] * invdet;
-    inv.m[1][0] = -A.m[1][0] * invdet;
-    inv.m[0][1] = -A.m[0][1] * invdet;
-    inv.m[1][1] = A.m[0][0] * invdet;
-    return inv;
-}
-
-/**
  * @brief Soma duas matrizes
  *
  * @param A Primeira matriz
