@@ -25,7 +25,7 @@ git clone https://github.com/google/googletest.git
 <h2>Resultados</h2>
 Os testes foram executados através da interface gráfica do Visual Studio Code, no botão *Run CTest* indicado a seguir. Todos os testes realizados foram bem sucedidos, conforme imagem abaixo.
 <div align="center">
-  <img src="/Atividade03/images/testsOutput.png" width="60%">
+  <img src="/Atividade03/images/expectedOutput.png" width="60%">
 </div>
 
 <h2>Referências</h2>
