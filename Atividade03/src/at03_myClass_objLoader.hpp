@@ -15,6 +15,7 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -25,60 +26,19 @@ class myClass_ObjLoader {
      *
      * @param filename Nome do arquivo de extensão .obj
      */
-    myClass_ObjLoader(const std::string& filename) {
-        lerArquivoObj(filename);
+    myClass_ObjLoader() {
+        vertices = std::vector<Vertice>();
+        coordenadasTextura = std::vector<CoordenadaTextura>();
+        normais = std::vector<Normal>();
+        faces = std::vector<std::vector<VerticesDeFace>>();
     }
 
-    /**
-     * @brief Imprime as coordenadas x, y e z dos vértices do objeto
-     *
-     */
-    void imprimeVertices() {
-        for (const auto& vertex : vertices) {
-            std::cout << "Vértice: (" << vertex.x << ", " << vertex.y << ", " << vertex.z << ")\n";
-        }
-    }
-
-    /**
-     * @brief Imprime as coordenadas u e v da textura do objeto
-     *
-     */
-    void imprimeCoordenadasDeTextura() {
-        for (const auto& texCoord : textureCoordinates) {
-            std::cout << "Coordenadas de Textura: (" << texCoord.u << ", " << texCoord.v << ")\n";
-        }
-    }
-
-    /**
-     * @brief Imprime as coordenadas x, y e z das normais do objeto
-     *
-     */
-    void imprimeNormais() {
-        for (const auto& normal : normals) {
-            std::cout << "Normal: (" << normal.x << ", " << normal.y << ", " << normal.z << ")\n";
-        }
-    }
-
-    /**
-     * @brief Imprime as informações (vértice, textura e normal) das faces do objeto
-     *
-     */
-    void imprimeFaces() {
-        for (const auto& face : faces) {
-            std::cout << "Face: ";
-            for (const auto& vertex : face) {
-                std::cout << vertex.vertexIndex << "/" << vertex.texCoordIndex << "/" << vertex.normalIndex << " ";
-            }
-            std::cout << "\n";
-        }
-    }
-
-   public:
+   private:
     /**
      * @brief Estrutura para armzenar coordenadas x, y e z de um vértice
      *
      */
-    struct Vertex {
+    struct Vertice {
         float x, y, z;
     };
 
@@ -86,7 +46,7 @@ class myClass_ObjLoader {
      * @brief Estrutura para armazenar coordenadas u e v de uma textura do objeto
      *
      */
-    struct TextureCoordinate {
+    struct CoordenadaTextura {
         float u, v;
     };
 
@@ -102,15 +62,73 @@ class myClass_ObjLoader {
      * @brief Estrutura para armazenar informações da face de um objeto
      *
      */
-    struct FaceVertex {
-        int vertexIndex, texCoordIndex, normalIndex;
+    struct VerticesDeFace {
+        int IndiceVertice, IndiceTextura, IndiceNormal;
     };
 
     // vetores de estruturas do objeto:
-    std::vector<Vertex> vertices;
-    std::vector<TextureCoordinate> textureCoordinates;
-    std::vector<Normal> normals;
-    std::vector<std::vector<FaceVertex>> faces;
+    std::vector<Vertice> vertices;
+    std::vector<CoordenadaTextura> coordenadasTextura;
+    std::vector<Normal> normais;
+    std::vector<std::vector<VerticesDeFace>> faces;
+
+   public:
+    /**
+     * @brief Retorna um vértice do vetor de vértices em um determinado índice
+     *
+     * @param idx Índice desejado
+     * @return Vertice
+     */
+    Vertice getVertice(const int idx) {
+        if (idx >= 0 && idx < this->vertices.size()) {
+            return this->vertices[idx];
+        }
+
+        return Vertice();
+    };
+
+    /**
+     * @brief Retorna uma coordenada de textura do vetor de coordenadas de textura em um determinado índice
+     *
+     * @param idx Índice desejado
+     * @return CoordenadaTextura
+     */
+    CoordenadaTextura getCoordenadaTextura(const int idx) {
+        if (idx >= 0 && idx < this->coordenadasTextura.size()) {
+            return this->coordenadasTextura[idx];
+        }
+
+        return CoordenadaTextura();
+    };
+
+    /**
+     * @brief Retorna uma normal do vetor de normais em um determinado índice
+     *
+     * @param idx Índice desejado
+     * @return Normal
+     */
+    Normal getNormal(const int idx) {
+        if (idx >= 0 && idx < this->normais.size()) {
+            return this->normais[idx];
+        }
+
+        return Normal();
+    };
+
+    /**
+     * @brief Retorna uma face do vetor de faces em um determinado índice i e j
+     *
+     * @param i Primeiro índice desejado
+     * @param j Segundo índice desejado
+     * @return VerticesDeFace
+     */
+    VerticesDeFace getFace(const int i, const int j) {
+        if (i >= 0 && j >= 0 && i < this->faces.size()) {
+            return this->faces[i][j];
+        }
+
+        return VerticesDeFace();
+    };
 
     /**
      * @brief Lê arquivo de extensão .obj, identificando seu conteúdo e armazenando as informações extraídas em suas respectivas estruturas adequadas
@@ -121,51 +139,39 @@ class myClass_ObjLoader {
         std::ifstream file(filename);
 
         std::string line;
+        std::regex regexVertex("^v (-?\\d+\\.\\d+) (-?\\d+\\.\\d+) (-?\\d+\\.\\d+)");
+        std::regex regexTexCoord("^vt (-?\\d+\\.\\d+) (-?\\d+\\.\\d+)");
+        std::regex regexNormal("^vn (-?\\d+\\.\\d+) (-?\\d+\\.\\d+) (-?\\d+\\.\\d+)");
+        std::regex regexFace("^f (\\d+)/(\\d+)/(\\d+) (\\d+)/(\\d+)/(\\d+) (\\d+)/(\\d+)/(\\d+)");
 
-        // enquanto houver linhas no arquivo:
         while (std::getline(file, line)) {
-            // identificação de linha de vértice:
-            if (line.substr(0, 2) == "v ") {
-                Vertex vertex;
+            if (std::regex_match(line, regexVertex)) {
+                Vertice vertex;
                 sscanf(line.c_str(), "v %f %f %f", &vertex.x, &vertex.y, &vertex.z);
                 vertices.push_back(vertex);
 
-                // identificação de linha de coordenadas de textura:
-            } else if (line.substr(0, 3) == "vt ") {
-                TextureCoordinate texCoord;
+            } else if (std::regex_match(line, regexTexCoord)) {
+                CoordenadaTextura texCoord;
                 sscanf(line.c_str(), "vt %f %f", &texCoord.u, &texCoord.v);
-                textureCoordinates.push_back(texCoord);
+                coordenadasTextura.push_back(texCoord);
 
-                // identificação de linha de normal:
-            } else if (line.substr(0, 3) == "vn ") {
+            } else if (std::regex_match(line, regexNormal)) {
                 Normal normal;
                 sscanf(line.c_str(), "vn %f %f %f", &normal.x, &normal.y, &normal.z);
-                normals.push_back(normal);
+                normais.push_back(normal);
 
-                // identificação de linha de face:
-            } else if (line.substr(0, 2) == "f ") {
-                // vetor de faces:
-                std::vector<FaceVertex> faceVertices;
-
-                // armazenamento da linha a partir da quebra (split) em espaços em branco:
-                char lineCopy[256];
-                strcpy(lineCopy, line.c_str());
-                char* token = strtok(lineCopy, " ");
-
-                // leitura de todo o conteúdo da linha:
-                while (token != nullptr) {
-                    if (token[0] == 'f') {
-                        token = strtok(NULL, " ");
-                        continue;
+            } else if (std::regex_match(line, regexFace)) {
+                std::vector<VerticesDeFace> faceVertices;
+                std::smatch matches;
+                if (std::regex_search(line, matches, regexFace)) {
+                    for (size_t i = 1; i < matches.size(); i += 3) {
+                        VerticesDeFace faceVertex;
+                        faceVertex.IndiceVertice = std::stoi(matches[i]);
+                        faceVertex.IndiceTextura = std::stoi(matches[i + 1]);
+                        faceVertex.IndiceNormal = std::stoi(matches[i + 2]);
+                        faceVertices.push_back(faceVertex);
                     }
-
-                    // leitura e armazenamento das informações da face, seguidos de continuação da busca:
-                    FaceVertex faceVertex;
-                    sscanf(token, "%d/%d/%d", &faceVertex.vertexIndex, &faceVertex.texCoordIndex, &faceVertex.normalIndex);
-                    faceVertices.push_back(faceVertex);
-                    token = strtok(NULL, " ");
                 }
-
                 faces.push_back(faceVertices);
             }
         }
