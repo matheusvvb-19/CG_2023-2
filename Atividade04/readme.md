@@ -1,7 +1,8 @@
 <h1>Atividade 04</h1>
 
 Nesta atividade, foram realizadas as seguintes funcionalidades:
-* Implementação de visualização de esfera, integrando a classe `myClass_Image` (Atividade 01) e a classe `vec3` (Atividade 02). Os arquivos `color.h` e `ray.h` foram implementados nesta atividade. Algumas alterações precisaram ser feitas na classe `MyClass_Image` - para mais detalhes, veja a pasta referente à [Atividade 01](https://github.com/matheusvvb-19/CG_2023-2/tree/main/Atividade01).
+* Implementação de visualização de esfera um uma imagem de extensão `.png`, integrando a classe `myClass_Image` (Atividade 01) e a classe `vec3` (Atividade 02). Os arquivos `color.h` e `ray.h` ([Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)) foram empregados nesta atividade. Algumas alterações precisaram ser feitas na classe `MyClass_Image` - para mais detalhes, veja a pasta referente à [Atividade 01](https://github.com/matheusvvb-19/CG_2023-2/tree/main/Atividade01);
+* Implementação de visualização de um trinângulo em uma imagem de extensão `.png`: semelhantemente ao caso da esfera, foi gerada uma imagem contendo um triângulo, baseado na análise de intercepção do raio (*ray tracing*) com a superfície do trinângulo. Para isso, foi utilizado o algoritmo de interseção de [Möller–Trumbore](https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm); e
 
 <h2>Construção</h2>
 
