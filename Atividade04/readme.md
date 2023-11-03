@@ -26,9 +26,16 @@ g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++
 ```
 
 <h2>Resultados</h2>
-Os testes foram executados através da interface gráfica do Visual Studio Code, no botão *Run CTest* indicado a seguir. Todos os testes realizados foram bem sucedidos, conforme imagem abaixo.
+As primeiras duas etapas desta atividade geram como resultado as imagens `sphere.png` e `triangle.png`, mostradas abaixo.
+
 <div align="center">
   <img src="/Atividade04/images/sphereAndTiangleImages.png" width="60%">
+</div>
+
+Já a visualização do arquivo `.obj`, realizada na terceira e última etapa desta atividade, é mostrada a seguir.
+
+<div align="center">
+  <img src="/Atividade04/images/objRender.png" width="60%">
 </div>
 
 <h2>Referências</h2>
