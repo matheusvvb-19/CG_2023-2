@@ -15,15 +15,6 @@ bool hit_sphere(const point3& center, double radius, const ray& r) {
     return (discriminant >= 0);
 }
 
-color ray_color(const ray& r) {
-    if (hit_sphere(point3(0, 0, -1), 0.5, r))
-        return color(1, 0, 0);
-
-    vec3 unit_direction = unit_vector(r.direction());
-    auto a = 0.5 * (unit_direction.y() + 1.0);
-    return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
-}
-
 bool hit_triangle(const point3& vertex0, const point3& vertex1, const point3& vertex2, const ray& r) {
     vec3 e1 = vertex1 - vertex0;
     vec3 e2 = vertex2 - vertex0;
@@ -51,13 +42,20 @@ bool hit_triangle(const point3& vertex0, const point3& vertex1, const point3& ve
     return (t > 0.0001);
 }
 
-color ray_color_triangle(const ray& r) {
-    point3 v0(-0.5, -0.5, -1.0);
-    point3 v1(0.5, -0.5, -1.0);
-    point3 v2(0, 0.5, -1.0);
+color ray_color(const ray& r, std::string geometricForm = "sphere") {
+    if (geometricForm == "sphere") {
+        if (hit_sphere(point3(0, 0, -1), 0.5, r)) {
+            return color(1, 0, 0);
+        }
 
-    if (hit_triangle(v0, v1, v2, r)) {
-        return color(1, 0, 0);
+    } else if (geometricForm == "triangle") {
+        point3 v0(-0.5, -0.5, -1.0);
+        point3 v1(0.5, -0.5, -1.0);
+        point3 v2(0, 0.5, -1.0);
+
+        if (hit_triangle(v0, v1, v2, r)) {
+            return color(1, 0, 0);
+        }
     }
 
     vec3 unit_direction = unit_vector(r.direction());
@@ -107,7 +105,7 @@ int main() {
             auto ray_direction = pixel_center - camera_center;
             ray r(camera_center, ray_direction);
 
-            color pixel_color = ray_color(r);
+            color pixel_color = ray_color(r, "sphere");
             write_color(arquivo, pixel_color);
         }
     }
@@ -127,7 +125,7 @@ int main() {
             auto ray_direction = pixel_center - camera_center;
             ray r(camera_center, ray_direction);
 
-            color pixel_color = ray_color_triangle(r);
+            color pixel_color = ray_color(r, "triangle");
             write_color(arquivo2, pixel_color);
         }
     }
