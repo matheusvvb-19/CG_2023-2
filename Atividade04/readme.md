@@ -26,6 +26,7 @@ g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++
 ```
 
 <h2>Resultados</h2>
+
 As primeiras duas etapas desta atividade geram como resultado as imagens `sphere.png` e `triangle.png`, mostradas abaixo.
 
 <div align="center">
