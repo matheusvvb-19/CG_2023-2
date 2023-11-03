@@ -19,6 +19,26 @@
 #include <iostream>
 #include <string>
 
+#include "../Atividade04/src/at04_color.h"
+#include "../Atividade04/src/at04_ray.h"
+
+/**
+ * @brief Construtor da classe myClass_Image sem valores pré-definidos pelo usuário
+ *
+ */
+myClass_Image::myClass_Image(){};
+
+/**
+ * @brief Construtor
+ *
+ * @param height
+ * @param width
+ */
+myClass_Image::myClass_Image(const int height, const int width) {
+    this->height = height;
+    this->width = width;
+};
+
 /**
  * @brief Gera um arquivo .ppm para o primeiro tipo de imagem simples: um degradê.
  *
@@ -170,7 +190,7 @@ void myClass_Image::Ppm2Png(std::string filename) {
     // Salvando a imagem em .png
     imagem.write(filename.substr(0, filename.find_last_of('.')) + ".png");
 
-    std::cout << "Imagem " << filename.substr(0, filename.find_last_of('.')) + ".png"
+    std::cout << "\nImagem " << filename.substr(0, filename.find_last_of('.')) + ".png"
               << " gerada com sucesso\n"
               << std::endl;
 };
