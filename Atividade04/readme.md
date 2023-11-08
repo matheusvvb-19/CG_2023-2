@@ -43,3 +43,4 @@ Já a visualização do arquivo `.obj`, realizada na terceira e última etapa de
 
 * [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 * [Möller–Trumbore algorithm](https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm)
+* [Setting up an OpenGL Project in Ubuntu [VSCode, GLFW, GLAD, CMake]](https://www.youtube.com/watch?v=LxEFn-cGdE0)
