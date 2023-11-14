@@ -1,8 +1,10 @@
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 #include "../../Atividade01/at01_myClass_Image.cc"
 #include "../../Atividade02/src/at02_vec3.hpp"
+#include "../../Atividade03/src/at03_myClass_objLoader.hpp"
 #include "at04_color.h"
 #include "at04_ray.h"
 
@@ -42,7 +44,7 @@ bool hit_triangle(const point3& vertex0, const point3& vertex1, const point3& ve
     return (t > 0.0001);
 }
 
-color ray_color(const ray& r, std::string geometricForm = "sphere") {
+color ray_color(const ray& r, std::string geometricForm = "sphere", std::vector<myClass_ObjLoader::Vertice>* obj_vertices = NULL, std::vector<std::vector<myClass_ObjLoader::VerticesDeFace>>* obj_verticesDeFaces = NULL) {
     if (geometricForm == "sphere") {
         if (hit_sphere(point3(0, 0, -1), 0.5, r)) {
             return color(1, 0, 0);
@@ -55,6 +57,21 @@ color ray_color(const ray& r, std::string geometricForm = "sphere") {
 
         if (hit_triangle(v0, v1, v2, r)) {
             return color(1, 0, 0);
+        }
+
+    } else if (geometricForm == "obj") {
+        for (size_t i = 0; i < obj_verticesDeFaces->size(); i++) {
+            int indiceV0 = (*obj_verticesDeFaces)[i][0].IndiceVertice;
+            int indiceV1 = (*obj_verticesDeFaces)[i][1].IndiceVertice;
+            int indiceV2 = (*obj_verticesDeFaces)[i][2].IndiceVertice;
+
+            point3 v0((*obj_vertices)[indiceV0].x, (*obj_vertices)[indiceV0].y, (*obj_vertices)[indiceV0].z);
+            point3 v1((*obj_vertices)[indiceV1].x, (*obj_vertices)[indiceV1].y, (*obj_vertices)[indiceV1].z);
+            point3 v2((*obj_vertices)[indiceV2].x, (*obj_vertices)[indiceV2].y, (*obj_vertices)[indiceV2].z);
+
+            if (hit_triangle(v0, v1, v2, r)) {
+                return color(1, 0, 0);
+            }
         }
     }
 
@@ -132,4 +149,29 @@ int main() {
 
     arquivo2.close();
     myImage.Ppm2Png("triangle.ppm");
+
+    myClass_ObjLoader loader;
+    loader.lerArquivoObj("cube.obj");
+    std::vector<myClass_ObjLoader::Vertice> obj_vertices = loader.vertices;
+    std::vector<std::vector<myClass_ObjLoader::VerticesDeFace>> obj_faces = loader.faces;
+
+    // Generate obj image:
+    std::ofstream arquivo3("cube.ppm");
+    arquivo3 << "P3\n"
+             << image_width << " " << image_height << "\n255\n";
+
+    for (int j = 0; j < image_height; ++j) {
+        std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
+        for (int i = 0; i < image_width; ++i) {
+            auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
+            auto ray_direction = pixel_center - camera_center;
+            ray r(camera_center, ray_direction);
+
+            color pixel_color = ray_color(r, "obj", &obj_vertices, &obj_faces);
+            write_color(arquivo3, pixel_color);
+        }
+    }
+
+    arquivo3.close();
+    myImage.Ppm2Png("cube.ppm");
 }
