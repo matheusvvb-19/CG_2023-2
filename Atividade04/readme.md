@@ -36,7 +36,7 @@ As primeiras duas etapas desta atividade geram como resultado as imagens `sphere
 Já a visualização do arquivo `.obj`, realizada na terceira e última etapa desta atividade, é mostrada a seguir.
 
 <div align="center">
-  <img src="/Atividade04/images/objRender.png" width="60%">
+  <img src="/Atividade04/images/cube.png" width="60%">
 </div>
 
 <h2>Referências</h2>
