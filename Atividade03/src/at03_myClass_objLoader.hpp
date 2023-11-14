@@ -33,7 +33,7 @@ class myClass_ObjLoader {
         faces = std::vector<std::vector<VerticesDeFace>>();
     }
 
-   private:
+   public:
     /**
      * @brief Estrutura para armzenar coordenadas x, y e z de um vértice
      *
