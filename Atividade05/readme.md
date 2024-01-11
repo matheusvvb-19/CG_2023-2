@@ -18,15 +18,17 @@ Nesta atividade, foram realizadas as seguintes funcionalidades:
 * `at05_utils.h`
 * `at05_vertex.h`
 
-2\. O arquivo principal `at05_main.cpp` foi implementado de forma a criar a cena e inserir seus objetos. Conforme requisito da atividade, os objetos inseridos apresentam material difuso. Alguns dos objetos foram renderizados utilizando-se esferas, enquanto outro foi renderizado através de interceptação de triângulos. Cada vértice do triângulo apresenta um vetor normal.
+2\. O arquivo da classe `myClass_objLoader.pp` ([Atividade 03](https://github.com/matheusvvb-19/CG_2023-2/blob/main/Atividade03/src/at03_myClass_objLoader.hpp)) precisou ser alterado. Agora, ele passou a importar a classe de triângulos e recebeu um novo método (`get_triangles_faces()`), que retorna as faces formadas por triângulos - que serão posteriormente adicionados à cena.
 
-3\. Garantiu-se que a biblioteca [ImageMagick](https://imagemagick.org/script/magick++.php) estivesse instalada, a partir do comando abaixo:
+3\. O arquivo principal `at05_main.cpp` foi implementado de forma a criar a cena e inserir seus objetos. Conforme requisito da atividade, os objetos inseridos apresentam material difuso. Alguns dos objetos foram renderizados utilizando-se esferas, enquanto outro foi renderizado através de interceptação de triângulos. Cada vértice do triângulo apresenta um vetor normal.
+
+4\. Garantiu-se que a biblioteca [ImageMagick](https://imagemagick.org/script/magick++.php) estivesse instalada, a partir do comando abaixo:
 
 ```
 sudo apt-get install libmagick++-dev
 ```
 
-4\. Por fim, o arquivo `at04_main.cpp` foi inteiramente compilado e executado com os seguintes comandos:
+5\. Por fim, o arquivo `at04_main.cpp` foi inteiramente compilado e executado com os seguintes comandos:
 
 ```
 g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++`
