@@ -38,11 +38,11 @@ g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++`
 A execução da atividade a partir do comandos indicados anteriormente resoluta nas seguintes cenas (`cam1.png` e `cam2.png`), respectivamente:
 
 <div align="center">
-  <img src="/Atividade04/images/cam1.png" width="60%">
+  <img src="/Atividade05/images/cam1.png" width="60%">
 </div>
 
 <div align="center">
-  <img src="/Atividade04/images/cam2.png" width="60%">
+  <img src="/Atividade05/images/cam2.png" width="60%">
 </div>
 
 <h2>Referências</h2>
