@@ -29,12 +29,14 @@ g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++`
 A execução da atividade a partir do comandos indicados anteriormente resoluta nas seguintes cenas (`cam1.png` e `cam2.png`), respectivamente:
 
 <div align="center">
-  <img src="/Atividade05/images/cam1.png" width="60%">
+  <img src="/Atividade06/images/cam1.png" width="60%">
 </div>
 
 <div align="center">
-  <img src="/Atividade05/images/cam2.png" width="60%">
+  <img src="/Atividade06/images/cam2.png" width="60%">
 </div>
+
+**Observação**: a documentação das novas classes (metal e vidro) já esão inclusas na Atividade 05.
 
 <h2>Referências</h2>
 
