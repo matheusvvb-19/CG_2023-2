@@ -18,6 +18,12 @@
 #include <regex>
 #include <string>
 #include <vector>
+#include <cmath>
+
+#include "../../Atividade05/src/at05_triangle.h"
+#include "../../Atividade05/src/at05_material.h"
+
+using namespace std;
 
 class myClass_ObjLoader {
    public:
@@ -177,6 +183,47 @@ class myClass_ObjLoader {
         }
 
         file.close();
+    };
+
+    vector<triangle> get_triangle_faces(shared_ptr<material> mat) {
+        /* Collect all triangles from obj */
+        vector<triangle> triangle_list;
+        int qtd_faces = this->faces.size();
+
+        for (size_t i = 0; i < qtd_faces; i++) {
+            int indiceV0 = this->getFace(i, 0).IndiceVertice - 1;
+            int indiceV1 = this->getFace(i, 1).IndiceVertice - 1;
+            int indiceV2 = this->getFace(i, 2).IndiceVertice - 1;
+
+            point3 A(this->getVertice(indiceV0).x, this->getVertice(indiceV0).y, this->getVertice(indiceV0).z);
+            point3 B(this->getVertice(indiceV1).x, this->getVertice(indiceV1).y, this->getVertice(indiceV1).z);
+            point3 C(this->getVertice(indiceV2).x, this->getVertice(indiceV2).y, this->getVertice(indiceV2).z);
+
+            // If the obj file doesn't specify vertex normals...
+            if(normais.empty()) {
+                vec3 u = B - A;
+                vec3 v = C - A;
+                vec3 triangle_normal = cross(u, v);
+
+                vertex vA(A, triangle_normal), vB(B, triangle_normal), vC(C, triangle_normal);
+                triangle t = triangle(vA, vB, vC, mat);
+                triangle_list.push_back(t);
+
+            } else {
+                int ind_vnA = this->getFace(i, 0).IndiceNormal - 1;
+                int ind_vnB = this->getFace(i, 1).IndiceNormal - 1;
+                int ind_vnC = this->getFace(i, 2).IndiceNormal - 1;
+                point3 normal_A(this->getNormal(ind_vnA).x, this->getNormal(ind_vnA).y, this->getNormal(ind_vnA).z);
+                point3 normal_B(this->getNormal(ind_vnB).x, this->getNormal(ind_vnB).y, this->getNormal(ind_vnB).z);
+                point3 normal_C(this->getNormal(ind_vnC).x, this->getNormal(ind_vnC).y, this->getNormal(ind_vnC).z);
+
+                vertex vA(A, normal_A), vB(B, normal_B), vC(C, normal_C);
+                triangle t = triangle(vA, vB, vC, mat);
+                triangle_list.push_back(t);
+            }
+        }
+
+        return triangle_list;
     }
 };
 
