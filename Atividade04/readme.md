@@ -16,9 +16,9 @@ Nesta atividade, foram realizadas as seguintes funcionalidades:
 sudo apt-get install libmagick++-dev
 ```
 
-4\. A função `ray_color()` presente no arquivo `at04_main.cpp` foi alterada de forma a agir diferentemente, de acordo com a forma geométrica (esfera ou triângulo) desejada. Além disso, foi criada a função auxiliar `hit_trangle()`, a qual é respons´vale por implementar o algoritmo de Möller–Trumbore, identificando quando os raios da câmera interceptam um triângulo definido.
+3\. A função `ray_color()` presente no arquivo `at04_main.cpp` foi alterada de forma a agir diferentemente, de acordo com a forma geométrica (esfera ou triângulo) desejada. Além disso, foi criada a função auxiliar `hit_trangle()`, a qual é respons´vale por implementar o algoritmo de Möller–Trumbore, identificando quando os raios da câmera interceptam um triângulo definido.
 
-5\. Por fim, o arquivo `at04_main.cpp` foi inteiramente impelementado, compilado e executado com os seguintes comandos:
+4\. Por fim, o arquivo `at04_main.cpp` foi inteiramente impelementado, compilado e executado com os seguintes comandos:
 
 ```
 g++ at04_main.cpp -o main `pkg-config --cflags --libs Magick++`
