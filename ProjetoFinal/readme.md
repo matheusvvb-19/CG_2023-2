@@ -23,7 +23,7 @@ O projeto será avaliado considerando os seguinte requisitos:
 sudo apt-get install libmagick++-dev
 ```
 
-4\. Por fim, o arquivo `at04_main.cpp` foi inteiramente compilado e executado com os seguintes comandos:
+4\. Por fim, o arquivo `projeto_main.cpp` foi inteiramente compilado e executado com os seguintes comandos:
 
 ```
 g++ projeto_main.cpp -o main `pkg-config --cflags --libs Magick++`
@@ -32,10 +32,21 @@ g++ projeto_main.cpp -o main `pkg-config --cflags --libs Magick++`
 
 <h2>Resultados</h2>
 
-A execução da atividade a partir do comandos indicados anteriormente resoluta nas seguintes cenas (`cam1.png` e `cam2.png`), respectivamente:
+A cena construída apresenta um cubo metálico posicionado na origem, entre duas esferas - sendo uma delas de vidro e, a outra, difusa. As esferas se movimentam horizontalmente, enquanto a câmera também se move parcialmente ao redor dos objetos, voltando ao seu ponto inicial. A animação contém 5 segundos e apresenta 10 frames por segundo, totalizando 50 frames, os quais foram unidos através da ferramenta online [Clideo](https://clideo.com/pt/video-maker).
 
+Foram criadas algumas variações da animação, alterando-se o valor de largura da imagem (atributo `image_width` da classe `camera`). Outros atributos da câmera foram mantidos constantes, como:
 
-**Observação**: a documentação das novas classes (metal e vidro) já esão inclusas na Atividade 05.
+* `aspect_ratio`: 16 / 9
+* `samples_per_pixel`: 10
+* `max_depth`: 20
+* `vfov`: 30
+* `defocus_angle`: 0.6
+* `focus_dist`: 10
+
+A seguir, estão listados os valores testados, com acesso ao vídeo produzido.
+
+* [image_width 144](https://drive.google.com/file/d/1TD5ir_JYE_QMG4NB8rd6F6YlKBYYVpVu/view?usp=drive_link)
+* [image_width 320](https://drive.google.com/file/d/1Cq4PY9jNX12W1-8nP-t8k_wI4yMGPuB8/view?usp=drive_link)
 
 <h2>Integrantes do Grupo</h2>
 
