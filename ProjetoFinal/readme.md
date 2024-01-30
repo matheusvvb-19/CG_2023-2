@@ -48,6 +48,7 @@ A seguir, estão listados os valores testados, com acesso ao vídeo produzido.
 * [image_width 144](https://drive.google.com/file/d/1TD5ir_JYE_QMG4NB8rd6F6YlKBYYVpVu/view?usp=drive_link)
 * [image_width 320](https://drive.google.com/file/d/1Cq4PY9jNX12W1-8nP-t8k_wI4yMGPuB8/view?usp=drive_link)
 * [image_width 500](https://drive.google.com/file/d/1nLQneh7DMxCckhW7keG_ljAWfTYAhDE3/view?usp=drive_link)
+* [image_width 1280](https://drive.google.com/file/d/1CoT6I3p21mKlC8XibMZ8JRoH6PplwK8N/view?usp=drive_link)
 
 Todos os vídeos podem ser encontrados [nesta pasta](https://drive.google.com/drive/folders/18PHfVBaKgD7IGaDz2KPG_7jaJL1Chcd8?usp=sharing) do Google Drive.
 
