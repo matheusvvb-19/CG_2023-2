@@ -30,19 +30,19 @@ int main() {
     float passo = 0.2;
 
     // Criação e configuração inicial da câmera:
-    camera cam1;
-    cam1.aspect_ratio = 16.0 / 9.0;
-    cam1.image_width = 144;
-    cam1.samples_per_pixel = 10;
-    cam1.max_depth = 20;
+    camera cam;
+    cam.aspect_ratio = 16.0 / 9.0;
+    cam.image_width = 144;
+    cam.samples_per_pixel = 10;
+    cam.max_depth = 20;
 
-    cam1.vfov = 30;
-    cam1.lookfrom = point3(0, 5, 20);
-    cam1.lookat = point3(0, 0, 0);
-    cam1.vup = vec3(0, 1, 0);
+    cam.vfov = 30;
+    cam.lookfrom = point3(0, 5, 20);
+    cam.lookat = point3(0, 0, 0);
+    cam.vup = vec3(0, 1, 0);
 
-    cam1.defocus_angle = 0.6;
-    cam1.focus_dist = 10.0;
+    cam.defocus_angle = 0.6;
+    cam.focus_dist = 10.0;
 
     // Geração de cada frame da cena
     // a animação contém 5 segundos, sendo cada segundo composto por 10 frames. Portanto, 50 frames deverão ser produzidos:
@@ -83,7 +83,7 @@ int main() {
 
         // Rendereização e escrita do frame:
         std::string filename = "cam" + std::to_string(frame) + ".ppm";
-        cam1.render(world, filename);
+        cam.render(world, filename);
 
         // Atualização das coordenadas das esferas e da câmera, gerando movimento:
         // movimento horizontal (eixo x) da esfera à esquerda, entre as posições -4 e -2:
@@ -105,12 +105,12 @@ int main() {
 
         // Movimento da câmera:
         if (frame <= 24) {
-            cam1.lookfrom = cam1.lookfrom.operator+=(point3(1, 0.5, -1));
-            cam1.vup = cam1.vup.operator+=(point3(0, 0.5, 0));
+            cam.lookfrom = cam.lookfrom.operator+=(point3(1, 0.5, -1));
+            cam.vup = cam.vup.operator+=(point3(0, 0.5, 0));
 
         } else {
-            cam1.lookfrom = cam1.lookfrom.operator+=(point3(-1, -0.5, 1));
-            cam1.vup = cam1.vup.operator+=(point3(0, -0.5, 0));
+            cam.lookfrom = cam.lookfrom.operator+=(point3(-1, -0.5, 1));
+            cam.vup = cam.vup.operator+=(point3(0, -0.5, 0));
         }
     }
 }
